@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Textures/Sprites/Enemy/Plane/Double_Medium/Enemy_DoubleMedium_3.png" type="Texture" id=1]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Enemy_DoubleMedium_1" type="RigidBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -4, -22, -2, -32, 2, -32, 4, -22, 14, -22, 15, -30, 21, -30, 22, -22, 22, 28, 19, 32, 17.0408, 32.1245, 14.2028, 27.7098, 14.0977, -10.2356, -13.6519, -10.0254, -13.757, 27.8149, -17.0155, 31.9143, -18.9075, 32.1245, -21.7455, 27.8149, -22.0608, -22.1133, -20.9046, -29.8916, -15.0183, -29.8916, -13.8621, -22.2184 )
