@@ -16,7 +16,7 @@ func _process(delta):
 	elif Input.is_action_just_released("ui_accept"):
 		position = Vector2(0, 0)
 		$Zoom.play("Zoom_Out")
-		
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -17,7 +17,6 @@ _global_script_class_icons={
 
 config/name="DSky"
 run/main_scene="res://Scenes/World/World_1.tscn"
-config/icon="res://icon.png"
 
 [display]
 
