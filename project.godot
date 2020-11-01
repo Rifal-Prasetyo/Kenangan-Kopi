@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="DSky"
 run/main_scene="res://Scenes/World/World_1.tscn"
 
+[autoload]
+
+World_Info="*res://Script/World/World.gd"
+
 [display]
 
 window/size/width=320

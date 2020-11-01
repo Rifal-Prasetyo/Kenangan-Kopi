@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Script/World/Camera.gd" type="Script" id=2]
-[ext_resource path="res://Script/World/cloud.png" type="Texture" id=3]
-[ext_resource path="res://Script/World/Clound_1.png" type="Texture" id=4]
+[ext_resource path="res://Textures/Sprites/World/cloud.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Sprites/World/Clound_1.png" type="Texture" id=4]
 [ext_resource path="res://Script/World/Cloud.gd" type="Script" id=5]
+[ext_resource path="res://Script/World/World.gd" type="Script" id=6]
+[ext_resource path="res://Objects/Enemy/Small/Enemy_Small_3.tscn" type="PackedScene" id=7]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 6
@@ -29,6 +31,16 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "points": PoolRealArray( 2, -0.5, 0, 0, 0, 1, -0.5, 0, 0, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("..:world_speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
 
@@ -56,6 +68,7 @@ tracks/1/keys = {
 }
 
 [node name="World" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="Water" type="Sprite" parent="."]
 scale = Vector2( 0.35, 0.35 )
@@ -85,6 +98,7 @@ usage = 0
 [node name="Cloud" type="Node2D" parent="."]
 
 [node name="Cloud_Up" type="Sprite" parent="Cloud"]
+visible = false
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 region_enabled = true
@@ -100,9 +114,30 @@ region_rect = Rect2( 0, 0, 200, 140 )
 script = ExtResource( 5 )
 Speed = 0.75
 
+[node name="Shadow" type="Sprite" parent="Cloud/Cloud_Down"]
+modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+texture = ExtResource( 4 )
+offset = Vector2( 5, 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 200, 140 )
+script = ExtResource( 5 )
+Speed = 0.75
+
 [node name="Cloud_Down2" type="Sprite" parent="Cloud"]
 scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 0, 10000, 200, 140 )
+script = ExtResource( 5 )
+Speed = 0.5
+
+[node name="Shadow" type="Sprite" parent="Cloud/Cloud_Down2"]
+modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+texture = ExtResource( 4 )
+offset = Vector2( 5, 5 )
 flip_h = true
 region_enabled = true
 region_rect = Rect2( 0, 10000, 200, 140 )
@@ -118,5 +153,21 @@ region_rect = Rect2( 0, 3000, 200, 140 )
 script = ExtResource( 5 )
 Speed = 0.25
 
+[node name="Shadow" type="Sprite" parent="Cloud/Cloud_Down3"]
+modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+texture = ExtResource( 4 )
+offset = Vector2( 5, 5 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 0, 3000, 200, 140 )
+script = ExtResource( 5 )
+Speed = 0.25
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -5.02707, 56.4211 )
+
+[node name="Light2D" type="Light2D" parent="."]
+
+[node name="Enemy_Small_3" parent="." instance=ExtResource( 7 )]
+position = Vector2( -87.6426, -61.5648 )
