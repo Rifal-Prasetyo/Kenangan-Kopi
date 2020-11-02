@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Textures/Sprites/Bullet/Bullet_4.png" type="Texture" id=1]
+[ext_resource path="res://Textures/Sprites/Bullet/Bullet_0.png" type="Texture" id=1]
 [ext_resource path="res://Script/Bullet/Bullet_1.gd" type="Script" id=2]
 
 [node name="Bullet" type="KinematicBody2D"]

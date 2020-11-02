@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Script/World/Camera.gd" type="Script" id=2]
-[ext_resource path="res://Textures/Sprites/World/Clound_1.png" type="Texture" id=4]
+[ext_resource path="res://Textures/Sprites/World/Cloud_1.png" type="Texture" id=4]
 [ext_resource path="res://Script/World/Cloud.gd" type="Script" id=5]
 [ext_resource path="res://Script/World/World.gd" type="Script" id=6]
-[ext_resource path="res://Objects/Enemy/Small/Enemy_Small_3.tscn" type="PackedScene" id=7]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 6
@@ -75,25 +74,6 @@ texture = SubResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 2560, 1280 )
 
-[node name="Camera" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 2, 2 )
-limit_left = -400
-limit_top = -200
-limit_right = 400
-limit_bottom = 200
-limit_smoothed = true
-smoothing_enabled = true
-smoothing_speed = 2.0
-script = ExtResource( 2 )
-
-[node name="Zoom" type="AnimationPlayer" parent="Camera"]
-anims/Zoom_In = SubResource( 2 )
-anims/Zoom_Out = SubResource( 3 )
-
-[node name="Viewport" type="Viewport" parent="."]
-usage = 0
-
 [node name="Cloud" type="Node2D" parent="."]
 
 [node name="Cloud_Down2" type="Sprite" parent="Cloud"]
@@ -139,6 +119,27 @@ Speed = 0.25
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -5.02707, 56.4211 )
 
+[node name="Viewport" type="Viewport" parent="."]
+hdr = false
+disable_3d = true
+usage = 0
+
+[node name="Camera" type="Camera2D" parent="."]
+rotating = true
+current = true
+zoom = Vector2( 2, 2 )
+limit_left = -350
+limit_top = -200
+limit_right = 350
+limit_bottom = 200
+smoothing_enabled = true
+smoothing_speed = 2.0
+script = ExtResource( 2 )
+
+[node name="Zoom" type="AnimationPlayer" parent="Camera"]
+anims/Zoom_In = SubResource( 2 )
+anims/Zoom_Out = SubResource( 3 )
+
 [node name="Cloud_Down" type="Sprite" parent="."]
 scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
@@ -156,8 +157,3 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 200, 140 )
 script = ExtResource( 5 )
 Speed = 0.75
-
-[node name="Light2D" type="Light2D" parent="."]
-
-[node name="Enemy_Small_3" parent="." instance=ExtResource( 7 )]
-position = Vector2( -87.6426, -61.5648 )

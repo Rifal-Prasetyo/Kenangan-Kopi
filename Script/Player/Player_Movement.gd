@@ -17,7 +17,7 @@ func _physics_process(delta):
 		input_velocity.y += 1
 	if Input.is_action_pressed("ui_up"):
 		input_velocity.y -= 1
-
+	world.player_position = position
 	input_velocity = input_velocity.normalized() * speed
 
 	# If there's input, accelerate to the input velocity
