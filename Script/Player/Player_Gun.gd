@@ -1,13 +1,9 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 onready var BULLET = preload("res://Objects/Bullet/Bullet_1.tscn")
 onready var world = $"/root/World_Info"
 
-func _process(delta):
+func _physics_process(delta):
 	if world.world_speed != 1:
 		$Cooldown.wait_time = 2
 	else:
