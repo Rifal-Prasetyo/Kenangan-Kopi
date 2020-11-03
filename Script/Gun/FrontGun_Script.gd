@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var BULLET = preload("res://Objects/Bullet/Bullet_1.tscn")
+export var BULLET = preload("res://Objects/Bullet/Bullet_1.tscn")
 onready var world = $"/root/World_Info"
 
 func _physics_process(delta):
@@ -17,4 +17,3 @@ func _on_Cooldown_timeout():
 
 	$Cooldown.start()
 	$Shoot.play()
-	

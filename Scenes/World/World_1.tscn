@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Script/World/Camera.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Enemy/Small/Enemy_Small_3.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Script/World/World.gd" type="Script" id=6]
 
 [sub_resource type="Animation" id=2]
@@ -88,3 +89,8 @@ script = ExtResource( 2 )
 [node name="Zoom" type="AnimationPlayer" parent="Camera"]
 anims/Zoom_In = SubResource( 2 )
 anims/Zoom_Out = SubResource( 3 )
+
+[node name="Enemy_Small_3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 209.462, -46.0419 )
+collision_layer = 1
+collision_mask = 1
