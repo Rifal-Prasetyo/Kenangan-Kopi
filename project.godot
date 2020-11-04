@@ -21,3 +21,4 @@ config/icon="res://icon.png"
 [rendering]
 
 environment/default_environment="res://default_env.tres"
+; drung ono Preview ne kak? 
