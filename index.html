@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>
+     I ONLY NEED
+    </title>
+  </head>
+  <body>
+    <p style="border-style:solid; font-family:times new roman"> Maturnuwun atas kowe ngkei pulpen ng aku<br>
+    dan maaf aku tidak bisa menempati permintaanmu <br>
+    aku nglakoni ngono kui gak sangkeng aku judis utowo opo<br>
+    ngono. <b>Tapi, bisakah kita koyo mbiyen meneh???<br>
+    aku luwih nyaman koyo mbiyen drpd saiki <br></p>
+    <button align="center" onclick="okee()"> ISO </button>
+    <p style="background:blue; text-align:center" id="pesen"></p>
+    
+    
+     <script>
+       function okee() {
+         var tanya = confirm("Lek kowe iso cobo buktikno");
+         
+         if(tanya === true)  {
+            pesen = "yo, mtrswn" ;
+         }else{
+            pesen = "blokir wae kontakku:)";
+         }
+         
+         document.getElementById("pesen").innerHTML = pesen;
+         }
+     </script>
+             
+  </body>
+</html>
